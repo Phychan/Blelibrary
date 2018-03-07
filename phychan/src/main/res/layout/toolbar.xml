@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:background="#51aa00"
+        android:id="@+id/ll_head_bg"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/head_status_bar"
+            android:layout_height="0dp"
+            android:layout_width="match_parent" />
+
+        <android.support.v7.widget.Toolbar
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:id="@+id/toolbar"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_width="match_parent"
+            android:theme="@style/MyToolbar"
+            app:contentInsetStart="0dp">
+
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_gravity="center_vertical|left"
+                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:scaleType="center"
+                android:src="@drawable/title_back_icon" />
+
+            <TextView
+                android:id="@+id/cancel_button"
+                android:layout_gravity="center_vertical|left"
+                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:scaleType="center"
+                android:text="取消"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/MyToolbarTitleText" />
+        </android.support.v7.widget.Toolbar>
+    </LinearLayout>
+</merge>

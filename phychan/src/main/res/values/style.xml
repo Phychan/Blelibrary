@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:actionBarSize">@dimen/toolbar_height</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenuStyle</item>
+        <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView">
+        <item name="minWidth">48dip</item>
+        <item name="maxWidth">48dip</item>
+        <item name="minHeight">48dip</item>
+        <item name="maxHeight">48dip</item>
+        <item name="indicatorName">BallPulseIndicator</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView.Large">
+        <item name="minWidth">76dip</item>
+        <item name="maxWidth">76dip</item>
+        <item name="minHeight">76dip</item>
+        <item name="maxHeight">76dip</item>
+        <item name="indicatorName">BallPulseIndicator</item>
+    </style>
+
+    <style name="AVLoadingIndicatorView.Small">
+        <item name="minWidth">24dip</item>
+        <item name="maxWidth">24dip</item>
+        <item name="minHeight">24dip</item>
+        <item name="maxHeight">24dip</item>
+        <item name="indicatorName">BallPulseIndicator</item>
+    </style>
+
+    <!--设置不覆盖锚点-->
+    <style name="OverflowMenuStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+    </style>
+    <!-- 右边三个点的样式 -->
+    <style name="OverflowButtonStyle" parent="Widget.AppCompat.Light.PopupMenu.Overflow">
+        <item name="srcCompat">@drawable/title_more_icon</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+
+    <!-- Toolbar中标题文字的style -->
+    <style name="MyToolbarTitleText">
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!-- loading dialog 样式 -->
+    <style name="MyLoadingDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
+    </style>
+
+    <style name="actAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_new</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_finish</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_finish</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_back</item>
+        <item name="android:taskOpenEnterAnimation">@anim/activity_new</item>
+        <item name="android:taskOpenExitAnimation">@anim/activity_finish</item>
+        <item name="android:taskCloseEnterAnimation">@anim/activity_finish</item>
+        <item name="android:taskCloseExitAnimation">@anim/activity_back</item>
+    </style>
+
+    <style name="DeleteDialog">
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 去黑线 -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 全屏 -->
+    </style>
+
+    <style name="PhotoDialog">
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 模糊 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 去黑线 -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 全屏 -->
+    </style>
+
+    <style name="AnimBottom" parent="@style/Animation">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="Animation">
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <item name="android:activityCloseEnterAnimation">@null</item>
+        <item name="android:activityCloseExitAnimation">@null</item>
+        <item name="android:taskOpenEnterAnimation">@null</item>
+        <item name="android:taskOpenExitAnimation">@null</item>
+        <item name="android:taskCloseEnterAnimation">@null</item>
+        <item name="android:taskCloseExitAnimation">@null</item>
+        <item name="android:taskToFrontEnterAnimation">@null</item>
+        <item name="android:taskToFrontExitAnimation">@null</item>
+        <item name="android:taskToBackEnterAnimation">@null</item>
+        <item name="android:taskToBackExitAnimation">@null</item>
+    </style>
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置屏幕变暗 -->
+    </style>
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/text_grey</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/text_blue</item>
+        <item name="colorControlNormal">@color/text_blue</item>
+        <item name="colorControlActivated">@color/text_blue</item>
+    </style>
+
+    <style name="Text_Black_Default_Select">
+        //选中正黑
+        <item name="android:background">@drawable/select_transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_Small_Select">
+        //选中小黑
+        <item name="android:background">@drawable/select_transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_Select">
+        //选中正红
+        <item name="android:background">@drawable/select_transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_Small_Select">
+        //选中小红
+        <item name="android:background">@drawable/select_transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_large">
+        //最大黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_big_mall">
+        //大大黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big_mall</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_big">
+        //大黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default">
+        //正黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_Small">
+        //小黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_little">
+        //小小黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Black_Default_little_small">
+        //最小黑
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little_small</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default_large">
+        //最大灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default_big_mall">
+        //大大灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big_mall</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default_big">
+        //大灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default">
+        //正灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default_Small">
+        //小灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default_little">
+        //小小灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Grey_Default_little_small">
+        //最小灰
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little_small</item>
+        <item name="android:textColor">@color/text_grey</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_large">
+        //最大红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_big_mall">
+        //大大红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big_mall</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_big">
+        //大红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default">
+        //正红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_Small">
+        //小红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_little">
+        //小小红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Red_Default_little_small">
+        //最小红
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little_small</item>
+        <item name="android:textColor">@color/text_red</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default_large">
+        //最大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default_big_mall">
+        //大大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big_mall</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default_big">
+        //大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default">
+        //正白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default_Small">
+        //小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default_little">
+        //小小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_White_Default_little_small">
+        //最小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little_small</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default_large">
+        //最大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default_big_mall">
+        //大大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big_mall</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default_big">
+        //大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default">
+        //正白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default_Small">
+        //小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default_little">
+        //小小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Green_Default_little_small">
+        //最小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little_small</item>
+        <item name="android:textColor">@color/text_green</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default_large">
+        //最大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_large</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default_big_mall">
+        //大大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big_mall</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default_big">
+        //大白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_big</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default">
+        //正白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default_Small">
+        //小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default_little">
+        //小小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="Text_Blue_Default_little_small">
+        //最小白
+        <item name="android:background">@color/transparent</item>
+        <item name="android:textSize">@dimen/default_text_size_little_small</item>
+        <item name="android:textColor">@color/text_blue</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="EditText_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textColorHint">@color/text_grey</item>
+        <item name="android:textSize">@dimen/default_text_size_small</item>
+        <item name="android:background">@drawable/rectangular</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:translationY">3dp</item>
+    </style>
+
+    <style name="LineVertical">
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/line</item>
+    </style>
+
+    <style name="LineHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/line</item>
+    </style>
+
+</resources>
